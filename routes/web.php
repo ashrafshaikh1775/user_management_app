@@ -17,6 +17,7 @@ use App\Http\Controllers\DataController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 Route::get('/',[DataController::class,"login"])->middleware('alreadyLoggedIn');
 Route::get('/register',[DataController::class,'register'])->middleware('alreadyLoggedIn');
 Route::post('/registerData',[DataController::class,'registerUser']);

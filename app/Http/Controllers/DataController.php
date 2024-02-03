@@ -8,6 +8,7 @@ use App\Models\User;
 
 class DataController extends Controller
 {
+
     public function login()
     {
      return view('login');
@@ -16,6 +17,7 @@ class DataController extends Controller
     {
       return view('welcome');
     } 
+    /* Validate and Register User data over here */
     public function registerUser(Request $request){
         $request->validate([
             'first_name'=>'required',
@@ -40,6 +42,7 @@ class DataController extends Controller
             return back()->with('fail','Something Wrong');
         }
     }
+     /* Login user over here */
     public function loginUser(Request $request){
         $request->validate([
             'email'=>'required|email',
@@ -64,6 +67,7 @@ class DataController extends Controller
             }
        
     }
+       /* send data to the dashboard page over here */
     public function dashboard(Request $request){
        $data = array();
        if($request->session()->has('loginId'))
@@ -80,7 +84,7 @@ class DataController extends Controller
          return redirect('');
         }
      }
-     
+     /* validate and  Update user's changes over here */
      public function updateUserData(Request $request){
       
         $request->validate([

@@ -2,19 +2,21 @@ body{
     padding: 0;
     margin: 0;
     background: linear-gradient(to right,#cc2b5e , #753a88);
+    display: flex;
+    justify-content: center;
+   
 }
 .outer_div{
     width: 500px;
-    height: 650px;
-    background-color: aquamarine;
-    margin-left: 35vw;
+    height: 680px;
     margin-top: 100px;
+    border-radius: 20px;
+    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 40px;
     box-sizing: border-box;
-    border-radius: 20px;
 }
 .app_name_div{
     margin-top: 50px;
@@ -57,4 +59,26 @@ a{
     margin-top: -20px;
     font-size: 25px;
     text-decoration: none;
+}
+/* Pages responsivness start over here */
+@media screen and (max-width:700px){
+    .outer_div{
+        width: 450px;
+    }
+}
+@media screen and (max-width:500px){
+    .outer_div{
+        width: 400px;
+    }
+}
+@media screen and (max-width:400px){
+    .outer_div{
+        width: 96vw;
+        margin-top:50px;
+    }
+}
+@media screen and (max-width:340px){
+    .first_name,.last_name,.email,.password,.submit_btn,.gender::placeholder{
+        font-size: 15px;
+    }
 }

@@ -5,31 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Managemen App</title>
          <link rel="stylesheet" href="{{ asset('css/register.css') }}" />
-
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
     <body>
     <form action="registerData" method='post'>
         @csrf
         <div class="outer_div">
-        <!-- <span>@error('fname') {{$message}} @enderror 
-              @error('lname') {{$message}} @enderror
-              @error('email') {{$message}} @enderror
-              @error('upass') {{$message}} @enderror
-              @error('select_country') {{$message}} @enderror
-              @error('select_gender') {{$message}} @enderror
-        </span> -->
         @if ($errors->any())
         @foreach ($errors->all() as $error)
-        <span>  {{$error}} </span>
+             <div class="alert alert-danger alert-dismissible"> {{$error}} 
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             </div>
                 @break 
         @endforeach
       @endif
         @if(Session::has('success'))
-        <span>{{ Session::get('success') }}</span>
+        <div class="alert alert-success alert-dismissible"> {{ Session::get('success') }} 
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             </div>
         @endif
         @if(Session::has('fail'))
-        <span>{{ Session::get('fail') }}</span>
+        <div class="alert alert-danger alert-dismissible"> {{ Session::get('fail') }} 
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             </div>
         @endif
+
         <div class="app_name_div">
             User Registration
         </div>
@@ -47,8 +48,8 @@
                 </select>
               <input type='submit' value='Submit'  class='submit_btn' name='submit_btn'></input>
               <a href='/'>Login</a>
-                 
+        
         </div>
-</form>
+        </form>
     </body>
 </html>

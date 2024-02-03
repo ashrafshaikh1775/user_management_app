@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Managemen App</title>
          <link rel="stylesheet" href="{{ asset('css/register.css') }}" />
-
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
     <body>
     <form action="updateUserInfo" method='post'>
@@ -13,13 +14,17 @@
         <div class="outer_div">
         @if ($errors->any())
         @foreach ($errors->all() as $error)
-                {{$error}}
+             <div class="alert alert-danger alert-dismissible"> {{$error}} 
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             </div>
                 @break 
         @endforeach
       @endif
 
         @if(Session::has('fail'))
-        <span>{{ Session::get('fail') }}</span>
+        <div class="alert alert-danger alert-dismissible"> {{ Session::get('fail') }} 
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+             </div>
         @endif 
         <div class="app_name_div">
             User Detail Update
